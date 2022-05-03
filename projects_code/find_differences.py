@@ -109,8 +109,8 @@ def pipeline_analysis_by_line(lexicons_dict, play_list, mystem):
             play_spoken = [x.strip('"') for x in spoken_src.readlines()]
             dict_by_line = analyse_line_all_lexicons(dict_by_line, play_name, play_spoken, lexicons_dict, mystem)
     df_by_line = pd.DataFrame.from_dict(dict_by_line)
+    df_by_line = df_by_line.transpose()
     df_by_line.to_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/projects_data_output/lexicons_by_line_2.csv", sep=";", encoding="utf-8", index=False)
-
 
 def analyse_type(phrases, lexicon, mystem):
     """Pipeline for sentiment analysis of all phrases of a given type in a play.
@@ -203,3 +203,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
