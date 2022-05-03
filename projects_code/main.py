@@ -121,6 +121,7 @@ def pipeline_analysis_by_line(lexicons_dict, play_list, mystem):
     df_by_line.to_csv("C:/Users/Айгуль/PycharmProjects/test_sentiment/projects_data_output/lexicons_by_line_data_for_3.csv", sep=";", encoding="utf-8", index=False)
 
 
+
 def analyse_type(phrases, lexicon, mystem):
     """Pipeline for sentiment analysis of all phrases of a given type in a play.
 
