@@ -18,7 +18,8 @@ def load_plays():
 
     :returns play_list (str) - list of RusDraCor plays for the experiment
     """
-    with open("C:/Users/Айгуль/PycharmProjects/Project_dep_1/project_data_in/rbc_data_fot_test.txt", "r", encoding="utf-8") as f:
+    with open("C:/Users/Айгуль/PycharmProjects/Project_dep_1/"
+              "project_data_in/rbc_data_fot_test.txt", "r", encoding="utf-8") as f:
         play_list = [x.strip('"') for x in f.readlines()]
     return play_list
 
@@ -32,7 +33,8 @@ def prepare_lexicons():
     lexicons = [lex[:-4] for lex in os.listdir(path_to_lexicons) if lex.endswith(".csv")]
     lexicons_dict = {}
     for lexicon in lexicons:
-        lex_df = pd.read_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/sentiment_datasets/{}.csv".format(lexicon),
+        lex_df = pd.read_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/"
+                             "sentiment_datasets/{}.csv".format(lexicon),
                              sep=";", encoding="utf-8")
         lexicons_dict[lexicon] = lex_df
     return lexicons_dict
@@ -110,7 +112,8 @@ def pipeline_analysis_by_line(lexicons_dict, play_list, mystem):
             dict_by_line = analyse_line_all_lexicons(dict_by_line, play_name, play_spoken, lexicons_dict, mystem)
     df_by_line = pd.DataFrame.from_dict(dict_by_line)
     df_by_line = df_by_line.transpose()
-    df_by_line.to_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/projects_data_output/lexicons_by_line_2.csv", sep=";", encoding="utf-8", index=False)
+    df_by_line.to_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/"
+                      "projects_data_output/lexicons_by_line_2.csv", sep=";", encoding="utf-8", index=False)
 
 def analyse_type(phrases, lexicon, mystem):
     """Pipeline for sentiment analysis of all phrases of a given type in a play.
