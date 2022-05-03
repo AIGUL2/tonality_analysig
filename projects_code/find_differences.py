@@ -110,7 +110,7 @@ def pipeline_analysis_by_line(lexicons_dict, play_list, mystem):
             play_spoken = [x.strip('"') for x in spoken_src.readlines()]
             dict_by_line = analyse_line_all_lexicons(dict_by_line, play_name, play_spoken, lexicons_dict, mystem)
     df_by_line = pd.DataFrame.from_dict(dict_by_line)
-    df_by_line = df_by_line.transpose()
+    # df_by_line = df_by_line.transpose()
     df_by_line.to_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/"
                       "projects_data_output/lexicons_by_line_2.csv", sep=";", encoding="utf-8", index=False)
 
@@ -149,7 +149,8 @@ def analyse_play(overall_dict, play_name, lexicon_name, lexicon, mystem):
     :returns overall_dict (dict) - updated dict
     """
 
-    with open("C:/Users/Айгуль/PycharmProjects/Project_dep_1/project_data_in/rbc_data_fot_test.txt", "r", encoding="utf-8") as stage_src:
+    with open("C:/Users/Айгуль/PycharmProjects/Project_dep_1/"
+              "project_data_in/rbc_data_fot_test.txt", "r", encoding="utf-8") as stage_src:
         play_stage = [x.strip('"') for x in stage_src.readlines()]
     # analyse lines
 
@@ -189,7 +190,8 @@ def pipeline_analysis_by_play(lexicons_dict, play_list, mystem):
             lexicon_df = lexicons_dict[lexicon_name]
             overall_dict = analyse_play(overall_dict, play_name, lexicon_name, lexicon_df, mystem)
     df = pd.DataFrame.from_dict(overall_dict)
-    df.to_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/projects_data_output/lexicons_experiment_2.csv", sep=";", encoding="utf-8", index=False)
+    df.to_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/"
+              "projects_data_output/lexicons_experiment_2.csv", sep=";", encoding="utf-8", index=False)
 
 
 def main():
