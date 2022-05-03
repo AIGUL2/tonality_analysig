@@ -77,7 +77,6 @@ def analyse_line_all_lexicons(dict_by_line, play_name, phrases, lexicons_dict, m
         dict_by_line["line"].append(phrase)
         phrase_lemmas = " ".join(
             [parse["analysis"][0]["lex"] for parse in mystem.analyze(phrase) if parse.get("analysis")])
-        print(len(dict_by_line["line, lemmas"]))
         dict_by_line["line, lemmas"].append(phrase_lemmas)
         for lexicon_name in lexicons_dict.keys():
             lexicon = lexicons_dict[lexicon_name]
@@ -131,7 +130,6 @@ def analyse_type(phrases, lexicon, mystem):
     type_negative = 0
     for phrase in phrases:
         sent = evaluate_phrase_polarity(phrase, lexicon, mystem)
-        print(sent)
         if sent > 0:
             type_positive += 1
         elif sent < 0:
@@ -153,7 +151,6 @@ def analyse_play(overall_dict, play_name, lexicon_name, lexicon, mystem):
 
     with open("C:/Users/Айгуль/PycharmProjects/Project_dep_1/project_data_in/rbc_data_fot_test.txt", "r", encoding="utf-8") as stage_src:
         play_stage = [x.strip('"') for x in stage_src.readlines()]
-        print(play_stage)
     # analyse lines
 
     stage_total, stage_positive, stage_negative = analyse_type(play_stage, lexicon, mystem)
@@ -166,7 +163,6 @@ def analyse_play(overall_dict, play_name, lexicon_name, lexicon, mystem):
     overall_dict["stage negative"].append(stage_negative)
     overall_dict["stage negative, %"].append(stage_negative / stage_total * 100)
 
-    print(overall_dict)
     return overall_dict
 
 
