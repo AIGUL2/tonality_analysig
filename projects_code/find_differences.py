@@ -18,7 +18,7 @@ def load_plays():
 
     :returns play_list (str) - list of RusDraCor plays for the experiment
     """
-    with open("rbc_data_fot_test.txt", "r", encoding="utf-8") as f:
+    with open("C:/Users/Айгуль/PycharmProjects/Project_dep_1/project_data_in/rbc_data_fot_test.txt", "r", encoding="utf-8") as f:
         play_list = [x.strip('"') for x in f.readlines()]
     return play_list
 
@@ -105,7 +105,7 @@ def pipeline_analysis_by_line(lexicons_dict, play_list, mystem):
         "SentiRusColl": []
     }
     for play_name in tqdm(play_list):
-        with open("rbc_data_fot_test.txt", "r", encoding="utf-8") as spoken_src:
+        with open("C:/Users/Айгуль/PycharmProjects/Project_dep_1/project_data_in/rbc_data_fot_test.txt", "r", encoding="utf-8") as spoken_src:
             play_spoken = [x.strip('"') for x in spoken_src.readlines()]
             dict_by_line = analyse_line_all_lexicons(dict_by_line, play_name, play_spoken, lexicons_dict, mystem)
     df_by_line = pd.DataFrame.from_dict(dict_by_line)
@@ -148,7 +148,7 @@ def analyse_play(overall_dict, play_name, lexicon_name, lexicon, mystem):
     :returns overall_dict (dict) - updated dict
     """
 
-    with open("rbc_data_fot_test.txt", "r", encoding="utf-8") as stage_src:
+    with open("C:/Users/Айгуль/PycharmProjects/Project_dep_1/project_data_in/rbc_data_fot_test.txt", "r", encoding="utf-8") as stage_src:
         play_stage = [x.strip('"') for x in stage_src.readlines()]
         print(play_stage)
     # analyse lines
