@@ -1,6 +1,6 @@
 import os
 
-import numpy as np
+# import numpy as np
 import pandas as pd
 # import seaborn as sns
 #
@@ -64,7 +64,6 @@ def analyse_line_all_lexicons(dict_by_line, play_name, phrases, lexicons_dict, m
 
     :arg dict_by_line (dict) - storage for all results
     :arg play_name (str)
-    :arg line_type (str) - spoken/stage
     :arg phrases (list of str) - lines to analyse
     :arg lexicons_dict (dict) - storage of all lexicons
     :arg mystem (pymystem3.mystem.Mystem) - an instance of morphological analyzer
@@ -72,19 +71,17 @@ def analyse_line_all_lexicons(dict_by_line, play_name, phrases, lexicons_dict, m
     :returns dict_by_line (dict) - parsed lines
     """
 
-    counter = 0
     for phrase in phrases:
         dict_by_line["play"].append(play_name)
         dict_by_line["line"].append(phrase)
-        if len(dict_by_line["line, lemmas"]) < len(play_list):
-            phrase_lemmas = " ".join(
-                [parse["analysis"][0]["lex"] for parse in mystem.analyze(phrase) if parse.get("analysis")])
-            print(len(dict_by_line["line, lemmas"]))
-            dict_by_line["line, lemmas"].append(phrase_lemmas)
-            for lexicon_name in lexicons_dict.keys():
-                lexicon = lexicons_dict[lexicon_name]
-                polarity = evaluate_phrase_polarity(phrase_lemmas, lexicon, mystem)
-                dict_by_line[lexicon_name].append(polarity)
+        phrase_lemmas = " ".join(
+            [parse["analysis"][0]["lex"] for parse in mystem.analyze(phrase) if parse.get("analysis")])
+        print(len(dict_by_line["line, lemmas"]))
+        dict_by_line["line, lemmas"].append(phrase_lemmas)
+        for lexicon_name in lexicons_dict.keys():
+            lexicon = lexicons_dict[lexicon_name]
+            polarity = evaluate_phrase_polarity(phrase_lemmas, lexicon, mystem)
+            dict_by_line[lexicon_name].append(polarity)
     return dict_by_line
 
 
