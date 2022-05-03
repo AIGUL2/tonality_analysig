@@ -13,7 +13,6 @@ from pymystem3 import Mystem
 from tqdm import tqdm
 
 
-
 def load_plays():
     """Loads play list for the experiment.
 
@@ -29,11 +28,11 @@ def prepare_lexicons():
 
     :returns lexicons_dict (dict) - dictionary with all lexicons used
     """
-    path_to_lexicons = "C:/Users/Айгуль/Diploma_for_VSHE/TEST SLOVAR/sentiment_datasets"
+    path_to_lexicons = "C:/Users/Айгуль/PycharmProjects/Project_dep_1/sentiment_datasets"
     lexicons = [lex[:-4] for lex in os.listdir(path_to_lexicons) if lex.endswith(".csv")]
     lexicons_dict = {}
     for lexicon in lexicons:
-        lex_df = pd.read_csv("C:/Users/Айгуль/Diploma_for_VSHE/TEST SLOVAR/sentiment_datasets/{}.csv".format(lexicon),
+        lex_df = pd.read_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/sentiment_datasets/{}.csv".format(lexicon),
                              sep=";", encoding="utf-8")
         lexicons_dict[lexicon] = lex_df
     return lexicons_dict
@@ -110,7 +109,7 @@ def pipeline_analysis_by_line(lexicons_dict, play_list, mystem):
             play_spoken = [x.strip('"') for x in spoken_src.readlines()]
             dict_by_line = analyse_line_all_lexicons(dict_by_line, play_name, play_spoken, lexicons_dict, mystem)
     df_by_line = pd.DataFrame.from_dict(dict_by_line)
-    df_by_line.to_csv("lexicons_by_line2.csv", sep=";", encoding="utf-8", index=False)
+    df_by_line.to_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/projects_data_output/lexicons_by_line_2.csv", sep=";", encoding="utf-8", index=False)
 
 
 def analyse_type(phrases, lexicon, mystem):
@@ -191,7 +190,7 @@ def pipeline_analysis_by_play(lexicons_dict, play_list, mystem):
             lexicon_df = lexicons_dict[lexicon_name]
             overall_dict = analyse_play(overall_dict, play_name, lexicon_name, lexicon_df, mystem)
     df = pd.DataFrame.from_dict(overall_dict)
-    df.to_csv("lexicons_experiment2.csv", sep=";", encoding="utf-8", index=False)
+    df.to_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/projects_data_output/lexicons_experiment_2.csv", sep=";", encoding="utf-8", index=False)
 
 
 def main():
