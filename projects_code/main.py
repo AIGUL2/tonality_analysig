@@ -140,7 +140,7 @@ def analyse_play(overall_dict, play_name, tpe):
     :returns overall_dict (dict) - updated dict
     """
 
-    overall_dict["play"].append(play_name)
+    overall_dict["phrase"].append(play_name)
     overall_dict["lexicon"].append(tpe[3])
     overall_dict["polatity, total"].append(tpe[0])
     overall_dict["polatity positive"].append(tpe[1])
@@ -162,7 +162,7 @@ def pipeline_analysis_by_play(lexicons_dict, play_list, mystem):
     """
     tpes = []
     overall_dict = {
-        "play": [],
+        "phrase": [],
         "lexicon": [],
         "polatity, total": [],
         "polatity positive": [],
@@ -175,7 +175,7 @@ def pipeline_analysis_by_play(lexicons_dict, play_list, mystem):
 
     for play_name in tqdm(play_list):
         for tpe in tpes:
-            overall_dict = analyse_play(overall_dict, play_name,tpe)
+            overall_dict = analyse_play(overall_dict, play_name, tpe)
     df = pd.DataFrame.from_dict(overall_dict)
 
     df.to_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/projects_data_output/lexicons_experiment_for_rbc.csv")
