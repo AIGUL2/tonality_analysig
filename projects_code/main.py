@@ -97,13 +97,15 @@ def pipeline_analysis_by_line(lexicons_dict, play_list, mystem):
     }
     for play_name in tqdm(play_list):
         dict_by_line = analyse_line_all_lexicons(dict_by_line, play_name, play_list, lexicons_dict, mystem)
-    df_by_line = pd.DataFrame.from_dict(dict_by_line)
+    df_by_line = pd.DataFrame.from_dict(dict_by_line, orient='index')
+    df_by_line = df_by_line.transpose()
+    # df_by_line = pd.DataFrame.from_dict(dict_by_line)
     # df_by_line = df_by_line.transpose()
     df_by_line.to_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/projects_data_output/"
                       "lexicons_by_line2_1_test_rbc.csv")
 
 
-def analyse_type(phrases, lexicon, mystem, lexicon_name):
+def analyse_type(phrases, lexicon, mystem):
     """Pipeline for sentiment analysis of all phrases of a given type in a play.
 
     :arg phrases (list of str) - drama lines
@@ -124,7 +126,7 @@ def analyse_type(phrases, lexicon, mystem, lexicon_name):
         else:
             type_negative += 1
 
-    lists = [type_total, type_positive, type_negative, lexicon_name]
+    lists = [type_total, type_positive, type_negative]
     return lists
 
 
