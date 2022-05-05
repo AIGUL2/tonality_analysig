@@ -12,8 +12,8 @@ def load_plays():
 
     :returns play_list (str) - list of RusDraCor plays for the experiment
     """
-    with open("C:/Users/Айгуль/PycharmProjects/Project_dep_1/project_data_in/"
-              "rbc_data_fot_test.txt", "r", encoding="utf-8") as f:
+    with open("C:/Users/Айгуль/PycharmProjects/Project_dep_1/"
+              "project_data_in/rbc_data_fot_test.txt", "r", encoding="utf-8") as f:
         play_list = [x.strip('"') for x in f.readlines()]
     return play_list
 
@@ -23,12 +23,11 @@ def prepare_lexicons():
 
     :returns lexicons_dict (dict) - dictionary with all lexicons used
     """
-    path_to_lexicons = "C:/Users/Айгуль/PycharmProjects/Project_dep_1/project_data_in/rbc_data_fot_test.txt"
+    path_to_lexicons = "C:/Users/Айгуль/PycharmProjects/Project_dep_1/sentiment_datasets"
     lexicons = [lex[:-4] for lex in os.listdir(path_to_lexicons) if lex.endswith(".csv")]
     lexicons_dict = {}
     for lexicon in lexicons:
-        lex_df = pd.read_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/"
-                             "project_data_in/rbc_data_fot_test.txt/{}.csv".format(lexicon),
+        lex_df = pd.read_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/sentiment_datasets/{}.csv".format(lexicon),
                              sep=";", encoding="utf-8")
         lexicons_dict[lexicon] = lex_df
     return lexicons_dict
