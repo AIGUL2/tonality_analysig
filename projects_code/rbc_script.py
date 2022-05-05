@@ -9,7 +9,7 @@ def load_phrase_list():
 
     :returns phrase_list (str) - list of data
     """
-    with open("/project_data_in/rbc_data.txt", "r", encoding="utf-8") as f:
+    with open("C:/Users/Айгуль/PycharmProjects/Project_dep_1/project_data_in/rbc_data.txt", "r", encoding="utf-8") as f:
         phrase_list = [x.strip('"') for x in f.readlines()]
     return phrase_list
 

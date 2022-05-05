@@ -9,7 +9,7 @@ def load_phrase_list():
 
     :returns phrase_list (str) - list of data
     """
-    with open("/project_data_in/ria_data.txt", "r", encoding="utf-8") as f:
+    with open("C:/Users/Айгуль/PycharmProjects/Project_dep_1/project_data_in/ria_data.txt", "r", encoding="utf-8") as f:
         phrase_list = [x.strip('"') for x in f.readlines()]
     return phrase_list
 
@@ -73,7 +73,7 @@ def analyse_line_all_lexicons(dict_by_line, phrase, phrase_list, lexicons_dict, 
 
 
 def analysis_by_line(lexicons_dict, phrase_list, mystem):
-    """Pipeline for analysingphrases line-by-line.
+    """Pipeline for analysing phrases line-by-line.
 
     :arg lexicons_dict (dict) - lexicons to use
     :arg phrase_list (list of str)
