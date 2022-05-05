@@ -100,6 +100,7 @@ def analysis_by_line(lexicons_dict, phrase_list, mystem):
     df_by_line.to_csv("C:/Users/Айгуль/PycharmProjects/Project_dep_1/"
                       "projects_data_output/lexicons_to_line_for_ria_data.csv", sep=";", encoding="utf-8", index=False)
 
+
 def analyse_type(phrases, lexicon, mystem, lexicon_name):
     """Pipeline for sentiment analysis of all phrases of a given type in a phrase.
 
@@ -129,7 +130,7 @@ def analyse_type(phrases, lexicon, mystem, lexicon_name):
 def analyse_phrase(overall_dict, phrase, tpe):
     """Analyses phrase in general.
 
-    :param tpe:
+    :param tpe: lists = [type_total, type_positive, type_negative, lexicon_name]
     :arg overall_dict (dict) - storage for all results
     :arg phrase (str) -phrase name to access TXT files
     # :arg lexicon_name (str) - lexicon name
@@ -190,6 +191,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
