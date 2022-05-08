@@ -31,7 +31,7 @@ def parse_lines(lines, mystem, stops):
     return ready_lines
 
 with open("C:/Users/Айгуль/PycharmProjects/"
-          "Project_dep_1/project_data_in/rbc_data.txt", "r", encoding="utf-8") as f_pos:
+          "Project_dep_1/project_data_in/negative_lines_lemmas.txt", "r", encoding="utf-8") as f_pos:
     pos_lines = parse_lines(f_pos.readlines(), mystem, stops)
 
 
@@ -42,7 +42,7 @@ for line in tqdm(pos_lines):
     positive_c.update(tokens)
 
 
-# positive_c.most_common(100)
+print(positive_c.most_common(100))
 
 wordcloud = WordCloud(background_color="white").generate(" ".join(pos_lines))
 wordcloud = wordcloud.to_file('C:/Users/Айгуль/PycharmProjects/Project_dep_1/images/.wordcloud.png')
