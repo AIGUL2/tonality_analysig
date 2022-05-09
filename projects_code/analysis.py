@@ -90,6 +90,6 @@ for em_lemma in lemmas_both:
 
 plt.hist(pos_freqs, bins=100)
 plt.savefig("C:/Users/Айгуль/PycharmProjects/Project_dep_1/images/plt_hist_both.png")
-
+plt.show()
 
 print(Counter(pos_freqs))
