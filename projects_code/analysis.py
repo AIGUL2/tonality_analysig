@@ -31,9 +31,32 @@ def parse_lines(lines, mystem, stops):
     return ready_lines
 
 with open("C:/Users/Айгуль/PycharmProjects/"
-          "Project_dep_1/project_data_in/negative_lines_lemmas.txt", "r", encoding="utf-8") as f_pos:
-    pos_lines = parse_lines(f_pos.readlines(), mystem, stops)
+          "Project_dep_1/project_data_in/negative_lines_lemmas_ria.txt", "r", encoding="utf-8") as f_pos:
+    neg_lines = parse_lines(f_pos.readlines(), mystem, stops)
 
+negative_c = Counter()
+
+for line in tqdm(neg_lines):
+    tokens = simple_word_tokenize(line)
+    negative_c.update(tokens)
+
+print(negative_c.most_common(100))
+
+#
+# wordcloud = WordCloud(background_color="white").generate(" ".join(neg_lines))
+# wordcloud = wordcloud.to_file('C:/Users/Айгуль/PycharmProjects/Project_dep_1/images/.wordcloud_ria_neg.png')
+
+# plt.imshow(wordcloud, interpolation="bilinear")
+# plt.axis("off")
+# plt.savefig("C:/Users/Айгуль/PycharmProjects/Project_dep_1/images/wordcloud_negative_ria.png")
+
+
+
+# Positive
+
+with open("C:/Users/Айгуль/PycharmProjects/"
+          "Project_dep_1/project_data_in/positive_lines_lemmas_ria.txt", "r", encoding="utf-8") as f:
+    pos_lines = parse_lines(f.readlines(), mystem, stops)
 
 positive_c = Counter()
 
@@ -41,12 +64,32 @@ for line in tqdm(pos_lines):
     tokens = simple_word_tokenize(line)
     positive_c.update(tokens)
 
-
 print(positive_c.most_common(100))
 
-wordcloud = WordCloud(background_color="white").generate(" ".join(pos_lines))
-wordcloud = wordcloud.to_file('C:/Users/Айгуль/PycharmProjects/Project_dep_1/images/.wordcloud.png')
+# wordcloud = WordCloud(background_color="white").generate(" ".join(pos_lines))
+# wordcloud = wordcloud.to_file('C:/Users/Айгуль/PycharmProjects/Project_dep_1/images/.wordcloud_ria_pos.png')
 
-plt.imshow(wordcloud, interpolation="bilinear")
-plt.axis("off")
-plt.savefig("C:/Users/Айгуль/PycharmProjects/Project_dep_1/images/wordcloud_negative.png")
+# plt.imshow(wordcloud, interpolation="bilinear")
+# plt.axis("off")
+# plt.savefig("C:/Users/Айгуль/PycharmProjects/Project_dep_1/images/wordcloud_pos_ria.png")
+
+# _______________________________________
+# Are there any words that are in both lists?
+
+lemmas_both = set(positive_c.elements()) & set(negative_c.elements())
+len_positive = len(simple_word_tokenize(" ".join(pos_lines)))
+len_negative = len(simple_word_tokenize(" ".join(neg_lines)))
+
+len(lemmas_both), len_positive, len_negative
+
+pos_freqs = []
+neg_freqs = []
+for em_lemma in lemmas_both:
+    pos_freqs.append(positive_c[em_lemma])
+    neg_freqs.append(negative_c[em_lemma])
+
+plt.hist(pos_freqs, bins=100)
+plt.savefig("C:/Users/Айгуль/PycharmProjects/Project_dep_1/images/plt_hist_both.png")
+
+
+print(Counter(pos_freqs))
