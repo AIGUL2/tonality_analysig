@@ -1,8 +1,7 @@
 import stanza
 stanza.download('ru')
 
-
-ppln = stanza.Pipeline('ru', processors='tokenize,pos')
+ppln = stanza.Pipeline('ru', processors='tokenize,pos,lemma,depparse')
 txt = """
 ТЦ «Авиапарк» в Москве пригрозили закрыть за нарушения масочного режима
 В России вновь выявили более 22 тыс. случаев заражения COVID-19
@@ -26,5 +25,6 @@ txt = """
 """
 
 doc = ppln(txt)
-print(*[f'word: {word.text}\tupos: {word.upos}\tfeats: {word.feats if word.feats else "_"}'
+
+print(*[f'word: {word.text}\thead: {snt.words[word.head-1].text if word.head > 0 else "root"}\tdeprel: {word.deprel}'
         for snt in doc.sentences for word in snt.words], sep='\n')
