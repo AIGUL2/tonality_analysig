@@ -1,4 +1,4 @@
-# tonality_analysig
+# Analysig tonality
 Auxiliary part for the diploma, on the topic Language features of verbalization of emotions in the crisis media discourse of 2020-2021
 
 
