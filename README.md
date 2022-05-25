@@ -22,8 +22,8 @@ The following marked-up lexicons were used.
 
 At the moment, the code is under development and needs improvements.
 
-Namely, the part with the calculation of the positive and negative marks for polarity positive, 
-polatiry negative in the experiment with lexicons.
+The tonality markup by dictionaries is performed correctly, but the error lies in counting 
+the total number of positive/negative notes for each dictionary in the part of experiment with lexicons.
 
 This error requires time and computing resources to solve it, but it does not affect the results of current research work,
 since the purpose of the work is not to study the performance of various Russian lexicons, 
