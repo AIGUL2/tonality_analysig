@@ -11,12 +11,13 @@ of which 142 were taken from RBC, and 7910 from RIA Novosti.
 
 
 The following marked-up lexicons were used.
-Productcenters, 2012 (https://www.semanticscholar.org/paper/Extraction-of-Russian-Sentiment-Lexicon-for-Product-Chetviorkin-Loukachevitch/e23b1430b3c4c4850db1336c5ba9c51c2084f29b?p2df)
-Emolux, 2013 (https://paperswithcode.com/paper/crowdsourcing-a-word-emotion-association)
-Chan-Skiena's Lexicon, 2014 (https://sites.google.com/site/datascienceslab/projects/multilingualsentiment)
-LinisCrowd, 2016 (http://www.linis-crowd.org/)
-RuSentiLex, 2017 (http://www.labinform.ru/pub/rusentilex/rusentilex_2017.txt)
-SentiRusColl, 2019 (https://github.com/kotelnikov-ev/SentiRusColl)
+
+1. Productcenters, 2012 (https://www.semanticscholar.org/paper/Extraction-of-Russian-Sentiment-Lexicon-for-Product-Chetviorkin-Loukachevitch/e23b1430b3c4c4850db1336c5ba9c51c2084f29b?p2df)
+2. Emolex, 2013 (https://paperswithcode.com/paper/crowdsourcing-a-word-emotion-association)
+3. Chan-Skiena's Lexicon, 2014 (https://sites.google.com/site/datascienceslab/projects/multilingualsentiment)
+4. LinisCrowd, 2016 (http://www.linis-crowd.org/)
+5. RuSentiLex, 2017 (http://www.labinform.ru/pub/rusentilex/rusentilex_2017.txt)
+6. SentiRusColl, 2019 (https://github.com/kotelnikov-ev/SentiRusColl)
 
 
 At the moment, the code is under development and needs improvements.
