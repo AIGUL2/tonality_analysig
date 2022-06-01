@@ -20,14 +20,7 @@ The following marked-up lexicons were used.
 6. SentiRusColl, 2019 (https://github.com/kotelnikov-ev/SentiRusColl)
 
 
-At the moment, the code is under development and needs improvements.
-
-The tonality markup by dictionaries is performed correctly, but the error lies in counting 
-the total number of positive/negative notes for each dictionary in the part of experiment with lexicons.
-
-This error requires time and computing resources to solve it, but it does not affect the results of current research work,
-since the purpose of the work is not to study the performance of various Russian lexicons, 
-but study of the actual linguistic features of emotional states.
 
 
-I hope for your attention and understanding. The code serves informational purposes and gives an idea of the overall picture of the study.
+I hope for your attention and understanding. 
+The code serves informational purposes and gives an idea of the overall picture of the study.
